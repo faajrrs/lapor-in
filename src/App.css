@@ -34,6 +34,10 @@ li {
 a {
   text-decoration: none;
 }
+html{
+  width: 100%;
+  overflow: hidden;
+}
 body {
   width: 100%;
   display: flex;
@@ -42,6 +46,9 @@ body {
   font-family: 'Open Sans';
   position: relative;
   background-image: url('/img/background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .home {
