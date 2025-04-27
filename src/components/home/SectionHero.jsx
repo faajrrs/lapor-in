@@ -5,7 +5,7 @@ import Waved4 from '../../assets/img/hero/waved/4.png'
 export default function SectionHero() {
   return (
     <section className="hero">
-      <h1>Layanan Pengaduan Online Rakyat</h1>
+      <h1>Layanan Pengaduan Masyarakat</h1>
       <p>
         Aplikasi Lapor-in! adalah sebuah platform digital yang mempermudah
         masyarakat dalam melaporkan pengaduan dan situasi darurat ke instansi

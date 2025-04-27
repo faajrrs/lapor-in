@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans',Arial, Helvetica, sans-serif;
+    /* border: 1px solid blue; */
+}
+
+:root {
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+
+    --primary-color: #EEEDED;
+    --second-color: #F0DE36;
+    --third-color: #B5211E;
+
+    --font-color-1: #333333;
+    --font-color-2: #666666;
+}
+
+
+img {
+    width: 30px;
+    height: 30px;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}

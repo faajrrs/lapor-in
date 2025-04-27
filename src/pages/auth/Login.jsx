@@ -1,6 +1,6 @@
 import LayoutHome from "../../layouts/LayoutHome";
 import "../../assets/css/auth.css";
-import "../../App.css";
+// import "../../App.css";
 import FormHeader from "../../components/auth/FormHeader";
 import Form from "../../components/auth/Form";
 import FormFooter from "../../components/auth/FormFooter";

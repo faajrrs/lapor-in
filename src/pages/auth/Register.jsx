@@ -1,3 +1,5 @@
+import "../../assets/css/auth.css";
+// import "../../App.css";
 import FormFooter from "../../components/auth/FormFooter";
 import FormHeader from "../../components/auth/FormHeader";
 import LayoutAuth from "../../layouts/LayoutAuth";
@@ -21,10 +23,6 @@ export default function Register() {
                     <FormField>
                         <FormLabel text="Nama Lengkap"/>
                         <FormInput type="text" placeholder="Masukkan nama lengkap anda"/>
-                    </FormField>
-                    <FormField>
-                        <FormLabel text="Email"/>
-                        <FormInput type="email" placeholder="Masukkan email aktif anda"/>
                     </FormField>
                     <FormField>
                         <FormLabel text="Kata Sandi"/>
