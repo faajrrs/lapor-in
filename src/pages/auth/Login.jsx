@@ -1,6 +1,5 @@
 import LayoutHome from "../../layouts/LayoutHome";
 import "../../assets/css/auth.css";
-// import "../../App.css";
 import FormHeader from "../../components/auth/FormHeader";
 import Form from "../../components/auth/Form";
 import FormFooter from "../../components/auth/FormFooter";
@@ -24,10 +23,10 @@ export default function Login() {
                 <FormLabel text="Kata Sandi"/>
                 <FormInput type="password" placeholder="Masukkan kata sandi yang terdaftar"/>
             </FormField>
-            <FormLink text="Lupa kata sandi?" href="/forgot-password"/>
+            <FormLink text="Lupa kata sandi?" href="/lupa-kata-sandi"/>
             <FormButton text="Masuk" type="submit"/>
         </Form>
-        <FormFooter text="Belum punya akun? " link="Daftar sekarang!" path="/register"/>
+        <FormFooter text="Belum punya akun? " link="Daftar sekarang!" path="/daftar"/>
       </LayoutAuth>
     </LayoutHome>
   );

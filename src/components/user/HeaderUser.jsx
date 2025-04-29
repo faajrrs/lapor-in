@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 export default function HeaderUser() {
   return (
     <header className="header__user">
       <div className="header__wrapper">
         <div className="header__logo">
-          <img src="/img/logo.svg" alt="" />
+          <img src="/img/logo.png" alt="" />
         </div>
-        <button className="header__logout">
+        <Link className="header__logout" to="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -23,7 +25,7 @@ export default function HeaderUser() {
             <line x1="21" x2="9" y1="12" y2="12" />
           </svg>
           <span>Keluar</span>
-        </button>
+        </Link>
       </div>
     </header>
   );

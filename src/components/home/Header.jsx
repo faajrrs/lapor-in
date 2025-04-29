@@ -5,7 +5,7 @@ export default function Header() {
     <header>
       <nav>
         <div className="logo">
-          <img src="/public/img/logo.svg" alt="" />
+          <img src="/public/img/logo.png" alt="" />
         </div>
         <ul className="nav__list">
           <NavLink text="Masuk"/>

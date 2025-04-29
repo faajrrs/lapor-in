@@ -1,5 +1,4 @@
 import "../../assets/css/auth.css";
-// import "../../App.css";
 import FormFooter from "../../components/auth/FormFooter";
 import FormHeader from "../../components/auth/FormHeader";
 import LayoutAuth from "../../layouts/LayoutAuth";
@@ -31,7 +30,7 @@ export default function Register() {
 
                     <FormButton text="Daftar"/>
                 </Form>
-                <FormFooter text="Sudah punya akun? " link="Masuk sekarang!" path="/login"/>
+                <FormFooter text="Sudah punya akun? " link="Masuk sekarang!" path="/masuk"/>
             </LayoutAuth>
         </LayoutHome>
     );

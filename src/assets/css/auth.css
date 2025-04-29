@@ -40,7 +40,6 @@ label {
     justify-content: center;
     align-items: center;
     gap: 0.5em;
-
 }
 
 .form-content .form-header img {
@@ -54,6 +53,7 @@ label {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
 }
 
 form {

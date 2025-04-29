@@ -1,9 +1,10 @@
+import PageInDevelopment from "../../components/user/PageInDevelopment";
 import LayoutUser from "../../layouts/LayoutUser";
 
 export default function NotificationUser() {
     return(
         <LayoutUser>
-            <h1>Halaman Notif Belum Dibuat</h1>
+            <PageInDevelopment/>
         </LayoutUser>
     )
 }

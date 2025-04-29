@@ -1,5 +1,4 @@
 import "../../assets/css/auth.css";
-// import "../../App.css";
 import Form from "../../components/auth/Form";
 import FormButton from "../../components/auth/FormButton";
 import FormField from "../../components/auth/FormField";
