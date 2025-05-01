@@ -713,11 +713,11 @@
 
     .container__user .section__user .history__container .history__item .history__instansi p,
     .container__user .section__user .history__container .history__item .history__date p {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .container__user .section__user .history__container .history__item .history__description h1 {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .container__user .section__user .history__container .history__item .history__description .history__location {

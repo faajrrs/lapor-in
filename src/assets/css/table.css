@@ -1,0 +1,120 @@
+.table-container {
+    overflow-x: auto;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    color: #1f2937;
+}
+
+thead tr {
+    border-bottom: 1px solid #e5e7eb;
+    /* gray-200 */
+}
+
+thead th {
+    font-weight: 700;
+    text-align: center;
+    padding: 12px 8px;
+    white-space: nowrap;
+}
+
+tbody tr {
+    border-bottom: 1px solid #f3f4f6;
+    /* gray-100 */
+    transition: background-color 0.2s ease;
+    position: relative;
+}
+
+tbody tr:hover {
+    background-color: #f9fafb;
+    /* gray-50 */
+}
+
+tbody td {
+    padding: 12px 8px;
+    text-align: center;
+    white-space: nowrap;
+}
+td.no-data {
+    font-size: 1.2em;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* Checkbox style */
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #d1d5db;
+    /* gray-300 */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Status text colors */
+.status-proses {
+    color: #fbbf24;
+    /* yellow-400 */
+    font-weight: 700;
+}
+
+.status-masuk {
+    color: #1e40af;
+    /* blue-900 */
+    font-weight: 700;
+}
+
+.status-selesai {
+    color: #16a34a;
+    /* green-600 */
+    font-weight: 700;
+}
+
+/* Detail button in table */
+.btn-detail {
+    background-color: #1e40af;
+    /* blue-900 */
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-detail:hover {
+    background-color: #1e3a8a;
+}
+
+/* Pagination container */
+.pagination {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #374151;
+    /* gray-700 */
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #374151;
+    font-weight: 400;
+}
+
+.pagination button:hover {
+    text-decoration: underline;
+}
+
+.pagination .btn-bold {
+    font-weight: 700;
+}

@@ -20,8 +20,8 @@ label {
 }
 
 .form {
-    max-width: 430px;
     width: 100%;
+    max-width: 430px;
     padding: 30px;
     border-radius: 12px;
     background: #FFF;
@@ -30,7 +30,7 @@ label {
 }
 
 .form-content .form-header {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
     color: #232836;
     text-align: center;
@@ -43,16 +43,8 @@ label {
 }
 
 .form-content .form-header img {
-    width: 70px;
+    width: 170px;
     height: 70px;
-    background-color: var(--tolakstatus-color);
-    padding: 0.2em;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);
     object-fit: contain;
 }
 
@@ -128,6 +120,12 @@ form {
     font-size: 14px;
     font-weight: 400;
     color: #232836;
+}
+.form-link .text-link{
+    color: #0171d3;
+}
+.form-link .text-link:hover{
+    text-decoration: none;
 }
 
 .form a {

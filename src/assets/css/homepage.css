@@ -83,11 +83,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 3em;
+  gap: 1.5em;
   position: relative;
 }
 
-.home main .hero h1,
+.home main .hero .title__hero,
 .home main .hero p {
   color: var(--white-color);
   transform: translateY(-50%);
@@ -97,16 +97,17 @@
   -o-transform: translateY(-50%);
 }
 
-.home main .hero h1 {
-  font-size: 33px;
-  font-weight: 600;
-  line-height: 53px;
+.home main .hero .title__hero {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 45px;
+  text-transform: uppercase;
 }
 
 .home main .hero p {
   font-size: 1.2em;
   font-weight: 300;
-  width: 60%;
+  width: 70%;
   text-align: center;
 }
 
@@ -226,10 +227,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .home{
-    min-height: 0;
-    /* overflow: hidden; */
-  }
   .home header nav .logo {
     width: 104px;
   }
@@ -244,13 +241,13 @@
   }
 
   .home main .hero {
-    height: calc(100vh - 80px);
+    height: 100vh;
     gap: 1em;
     justify-content: start;
-    padding-top: 5em;
+    padding-top: 50%;
   }
 
-  .home main .hero h1,
+  .home main .hero .title__hero,
   .home main .hero p {
     color: var(--white-color);
     transform: translateY(0%);
@@ -260,9 +257,8 @@
     -o-transform: translateY(0%);
   }
 
-  .home main .hero h1 {
+  .home main .hero .title__hero {
     font-size: 26px;
-    font-weight: 600;
     line-height: 30px;
     text-align: center;
   }
@@ -275,19 +271,27 @@
   }
 
   .home main .workflow {
-    height: 100vh;
-    /* overflow: hidden; */
-    padding: 1.5em;
+    min-height: 100vh;
+    /* padding: 2.5em; */
   }
 
   .home main .workflow .workflow__list {
     height: 100%;
-    max-width: 975px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    overflow: hidden;
+  }
+  .home main .workflow .workflow__list .workflow__item {
+    flex: 1 0 20%;
+  }
+  .home main .workflow .workflow__list .workflow__item .description__workflow h1 {
+    font-size: 1em;
+    line-height: 23px;
+  }
+  
+  .home main .workflow .workflow__list .workflow__item .description__workflow p {
+    font-size: 0.9em;
+    line-height: 20px;
   }
 
   .home main .workflow .workflow__list .workflow__item:nth-child(1)::after,
@@ -302,7 +306,7 @@
 
 @media screen and (max-width: 480px) {
   .home main .workflow .workflow__list .workflow__item .icon__workflow {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 }}

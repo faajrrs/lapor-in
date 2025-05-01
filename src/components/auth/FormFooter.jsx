@@ -4,7 +4,7 @@ export default function FormFooter({text,link,path}) {
     return(
         <div className="form-link link-register">
         <span>
-          {text} <Link to={path}>{link}</Link>
+          {text} <Link className="text-link" to={path}>{link}</Link>
         </span>
       </div>
     )
