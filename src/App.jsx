@@ -5,17 +5,15 @@ import Homepage from "./pages/Homepage";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import "./global.css";
 import HomeUser from "./pages/user/HomeUser";
-import HistoryUser from "./pages/user/HistoryUser";
 import ReportUser from "./pages/user/ReportUser";
 import ChatUser from "./pages/user/ChatUser";
 import NotificationUser from "./pages/user/NotificationUser";
-import HistoryFinish from "./pages/user/HistoryFinish";
-import HistoryHandled from "./pages/user/HistoryHandled";
 import DashboardAdmin from "./pages/admin/DashboardAdmin";
 import ReportAdmin from "./pages/admin/ReportAdmin";
 import TitleApp from "./TitleApp";
 import ChatAdmin from "./pages/admin/ChatAdmin";
 import ManageAdmin from "./pages/admin/ManageAdmin";
+import HistoryMain from "./pages/user/HistoryMain";
 
 function App() {
   return (
@@ -32,11 +30,7 @@ function App() {
 
         {/* Route User */}
         <Route path="/beranda" element={<HomeUser />} />
-        <Route path="/riwayat">
-          <Route path="masuk" element={<HistoryUser />} />
-          <Route path="proses" element={<HistoryHandled />} />
-          <Route path="selesai" element={<HistoryFinish />} />
-        </Route>
+        <Route path="/riwayat/*" element={<HistoryMain/>}/>
         <Route path="/laporan" element={<ReportUser />} />
         <Route path="/chat" element={<ChatUser />} />
         <Route path="/notifikasi" element={<NotificationUser />} />

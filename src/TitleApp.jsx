@@ -13,6 +13,7 @@ const routeTitles = {
   "/riwayat/masuk": "Riwayat Masuk - Lapor-In!",
   "/riwayat/proses": "Riwayat Proses - Lapor-In!",
   "/riwayat/selesai": "Riwayat Selesai - Lapor-In!",
+  "/riwayat/detail": "Riwayat Detail - Lapor-In!",
   "/laporan": "Laporkan Masalah - Lapor-In!",
   "/chat": "Chat - Lapor-In!",
   "/notifikasi": "Notifikasi - Lapor-In!",

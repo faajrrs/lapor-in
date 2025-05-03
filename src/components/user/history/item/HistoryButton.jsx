@@ -1,7 +1,7 @@
-export default function HistoryButton({text}) {
+export default function HistoryButton() {
   return (
-    <a href="" className="history__button">
-      {text}
-    </a>
+    <button className="history__button">
+      Detail
+    </button>
   );
 }

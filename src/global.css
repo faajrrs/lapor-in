@@ -17,6 +17,9 @@
     --font-color-1: #333333;
     --font-color-2: #666666;
 }
+:root {
+    scroll-behavior: smooth;
+}
 img {
     width: 30px;
     height: 30px;
@@ -32,4 +35,9 @@ li {
 
 a {
     text-decoration: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
 }

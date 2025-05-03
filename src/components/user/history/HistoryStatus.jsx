@@ -6,8 +6,8 @@ export default function HistoryStatus() {
     const { pathname } = location;
     return(
         <ul className="history__status">
-            <HistoryStatusItem text="Proses" to="/riwayat/masuk" active={pathname === "/riwayat/masuk"}/>
-            <HistoryStatusItem text="Ditangani" to="/riwayat/proses" active={pathname === "/riwayat/proses"}/>
+            <HistoryStatusItem text="Masuk" to="/riwayat/masuk" active={pathname === "/riwayat/masuk"}/>
+            <HistoryStatusItem text="Proses" to="/riwayat/proses" active={pathname === "/riwayat/proses"}/>
             <HistoryStatusItem text="Selesai" to="/riwayat/selesai" active={pathname === "/riwayat/selesai"}/>
         </ul>
     )
