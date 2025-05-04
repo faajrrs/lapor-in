@@ -14,6 +14,7 @@ import TitleApp from "./TitleApp";
 import ChatAdmin from "./pages/admin/ChatAdmin";
 import ManageAdmin from "./pages/admin/ManageAdmin";
 import HistoryMain from "./pages/user/HistoryMain";
+import ReportDetail from "./pages/admin/ReportDetail";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/admin">
           <Route path="dashboard" element={<DashboardAdmin />} />
           <Route path="laporan-pengaduan" element={<ReportAdmin />} />
+          <Route path="laporan-pengaduan/detail/:id" element={<ReportDetail />} />
           <Route path="chat-pengguna" element={<ChatAdmin />} />
           <Route path="kelola-pengguna" element={<ManageAdmin />} />
         </Route>

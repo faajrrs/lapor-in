@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Filter from "../../components/admin/content/filter/Filter";
 import Table from "../../components/admin/content/table/Table";
 import MainContent from "../../components/admin/main/MainContent";
@@ -45,7 +46,7 @@ const renderReportRow = (item,index) => (
     <td>{item.lokasi_laporan}</td>
     <td className={`status-${item.status_laporan.toLowerCase()}`}>{item.status_laporan}</td>
     <td>
-      <button className="btn-detail" type="button">Detail</button>
+      <Link to={`detail/:${item.id}`} className="btn-detail" type="button">Detail</Link>
     </td>
   </>
 )
@@ -54,7 +55,7 @@ export default function ReportAdmin() {
   return (
     <LayoutAdmin>
       <MainContent>
-        <TopbarSecond />
+        <TopbarSecond title="LAPORAN PENGADUAN"/>
         <Filter />
         <Table headers={header} datas={Data} renderRow={renderReportRow}/>
       </MainContent>

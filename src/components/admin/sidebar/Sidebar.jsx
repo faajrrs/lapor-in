@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import AvatarAdmin from '../../../assets/img/admin/avatar-admin.jpg'
+import AvatarAdmin from "../../../assets/img/admin/avatar-admin.jpg";
 import SidebarLink from "./SidebarLink";
 import SidebarMenu from "./SidebarMenu";
 
@@ -132,6 +132,9 @@ export default function Sidebar() {
           </svg>
         </SidebarLink>
       </SidebarMenu>
+      <div className="sidebar-footer">
+        <img src="/img/logo.png" alt="" />
+      </div>
     </aside>
   );
 }
