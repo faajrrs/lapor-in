@@ -1,85 +1,64 @@
 import { useParams } from "react-router-dom";
-import imgReport from "../../assets/img/user/history/kebakaran.jpg";
+import { useEffect, useState } from "react";
 import HistoryActions from "../../components/user/history/HistoryDetailAction";
 import HistoryDescList from "../../components/user/history/detail/HistoryDescList";
 import HistoryDescItem from "../../components/user/history/detail/HistoryDescItem";
 
-const dataReport = [
-  {
-    id: 1,
-    image_report: imgReport,
-    nama_agency: "Dinas Pemadam Kebakaran",
-    title_report: "Kebakaran Rumah",
-    desc_report:
-      "Rumah saya sedang kebakaran karena terjadi konsleting pada listrik jadi tolong bantu saya.",
-    location_report: "Perumnas Barehan, Kecamatan Pacitan",
-    date_report: "14 April 2025",
-  },
-  {
-    id: 2,
-    image_report: imgReport,
-    nama_agency: "Dinas Pemadam Kebakaran",
-    title_report: "Kebakaran Rumah",
-    desc_report:
-      "Rumah saya sedang kebakaran karena terjadi konsleting pada listrik jadi tolong bantu saya.",
-    location_report: "Perumnas Barehan, Kecamatan Pacitan",
-    date_report: "14 April 2025",
-  },
-  {
-    id: 3,
-    image_report: imgReport,
-    nama_agency: "Dinas Pemadam Kebakaran",
-    title_report: "Kebakaran Rumah",
-    desc_report:
-      "Rumah saya sedang kebakaran karena terjadi konsleting pada listrik jadi tolong bantu saya.",
-    location_report: "Perumnas Barehan, Kecamatan Pacitan",
-    date_report: "14 April 2025",
-  },
-];
 export default function HistoryDetail() {
   const { id } = useParams();
-  const detail = dataReport.find((item) => item.id == id);
+  const [detail, setDetail] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/laporan/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setDetail(data.data);
+        } else {
+          alert("Laporan tidak ditemukan");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Gagal mengambil detail laporan");
+      });
+  }, [id]);
+
   return (
-    <div class="history__container">
+    <div className="history__container">
       <div className="history__detail">
         <HistoryActions />
         {detail ? (
           <>
             <div className="history__description_detail">
               <HistoryDescList>
-                <HistoryDescItem
-                  label="Judul Laporan"
-                  desc={detail.title_report}
-                />
-                <HistoryDescItem
-                  label="Deskripsi Laporan"
-                  desc={detail.desc_report}
-                />
+                <HistoryDescItem label="Judul Laporan" desc={detail.judul_laporan} />
+                <HistoryDescItem label="Deskripsi Laporan" desc={detail.deskripsi_laporan} />
               </HistoryDescList>
               <HistoryDescList>
-                <HistoryDescItem
-                  label="Tanggal Kejadian"
-                  desc={detail.date_report}
-                />
-                <HistoryDescItem
-                  label="Lokasi Kejadian"
-                  desc={detail.location_report}
-                />
-                <HistoryDescItem
-                  label="Instansi Tujuan"
-                  desc={detail.nama_agency}
-                />
+                <HistoryDescItem label="Tanggal Kejadian" desc={detail.tanggal} />
+                <HistoryDescItem label="Lokasi Kejadian" desc={detail.lokasi} />
+                <HistoryDescItem label="Instansi Tujuan" desc={detail.nama_instansi} />
               </HistoryDescList>
             </div>
             <div className="history__image_detail">
               <h2>Bukti Laporan</h2>
-              <img src={detail.image_report} alt="" />
-              <img src={detail.image_report} alt="" />
-              <img src={detail.image_report} alt="" />
+              <img
+                src={`http://localhost:3000/uploads/laporan/${detail.foto_laporan}`}
+                alt="Bukti Laporan"
+              />
+              <img
+                src={`http://localhost:3000/uploads/laporan/${detail.foto_laporan}`}
+                alt="Bukti Laporan"
+              />
+              <img
+                src={`http://localhost:3000/uploads/laporan/${detail.foto_laporan}`}
+                alt="Bukti Laporan"
+              />
             </div>
           </>
         ) : (
-          <h1>Tidak ada detail laporan.</h1>
+          <h1>Loading atau tidak ada detail laporan.</h1>
         )}
       </div>
     </div>

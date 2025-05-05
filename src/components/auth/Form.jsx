@@ -1,7 +1,7 @@
-export default function Form({children}) {
+export default function Form({ children, onSubmit }) {
   return (
-    <form action="dasboard.html">
-        {children}
+    <form onSubmit={onSubmit}>
+      {children}
     </form>
   );
 }

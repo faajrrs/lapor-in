@@ -1,57 +1,51 @@
 import HistoryList from "../../components/user/history/HistoryList";
-import imgReport from "../../assets/img/user/history/kebakaran.jpg";
+//import imgReport from "../../assets/img/user/history/kebakaran.jpg";
 import HistoryItem from "../../components/user/history/item/HistoryItem";
 import HistoryButton from "../../components/user/history/item/HistoryButton";
 import { Link } from "react-router-dom";
 import HistoryStatus from "../../components/user/history/HistoryStatus";
+import { useEffect, useState } from "react";
 
-const dataReport = [
-  {
-    id: 1,
-    image_report: imgReport,
-    nama_agency: "Dinas Pemadam Kebakaran",
-    title_report: "Kebakaran Rumah",
-    location_report: "Perumnas Barehan, Kecamatan Pacitan",
-    date_report: "14 April 2025",
-  },
-  {
-    id: 2,
-    image_report: imgReport,
-    nama_agency: "Dinas Pemadam Kebakaran",
-    title_report: "Kebakaran Rumah",
-    location_report: "Perumnas Barehan, Kecamatan Pacitan",
-    date_report: "14 April 2025",
-  },
-  {
-    id: 3,
-    image_report: imgReport,
-    nama_agency: "Dinas Pemadam Kebakaran",
-    title_report: "Kebakaran Rumah",
-    location_report: "Perumnas Barehan, Kecamatan Pacitan",
-    date_report: "14 April 2025",
-  },
-];
 export default function HistoryUser() {
+  const [laporan, setLaporan] = useState([]);
+ useEffect(() => {
+    fetch("http://localhost:3000/laporan/masuk") // ganti port sesuai backend kamu
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setLaporan(data.data);
+        } else {
+          alert("Gagal memuat laporan");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Terjadi kesalahan saat mengambil data laporan");
+      });
+  }, []);
   return (
     <div className="history__container">
       <HistoryStatus />
       <HistoryList>
-        {dataReport.map((laporan) => (
-          <HistoryItem
-            key={laporan.id}
-            image_report={laporan.image_report}
-            name_agency={laporan.nama_agency}
-            date_report={laporan.date_report}
-            title_report={laporan.title_report}
-            location_report={laporan.location_report}
-            children={
-              <Link to={`/riwayat/masuk/detail/${laporan.id}`}>
+        {laporan.map((item, index) => (
+            <HistoryItem
+              key={index}
+              image_report={`http://localhost:3000/uploads/laporan/${item.foto_laporan}`}
+              name_agency={item.nama_instansi} // jika ingin ditampilkan, bisa ambil dari backend juga
+              title_report={item.judul_laporan}
+              date_report={item.tanggal}
+              location_report={item.lokasi}
+              children={
+              <Link to={`/riwayat/masuk/detail/${item.id}`}>
                 <HistoryButton />
               </Link>
-            }
-          />
-        ))}
+              }
+            >
+            </HistoryItem>
+          ))}
       </HistoryList>
     </div>
   );
 }
+
+
