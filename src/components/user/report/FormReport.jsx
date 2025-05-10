@@ -64,7 +64,11 @@ export default function FormReport() {
   };
 
   return (
-    <form className="form__report" onSubmit={handleSubmit} encType="multipart/form-data">
+    <form
+      className="form__report"
+      onSubmit={handleSubmit}
+      encType="multipart/form-data"
+    >
       <FormFieldReport>
         <FormLabelReport text="Judul Laporan" />
         <FormInputReport
