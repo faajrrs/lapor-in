@@ -15,6 +15,7 @@ import ChatAdmin from "./pages/admin/ChatAdmin";
 import ManageAdmin from "./pages/admin/ManageAdmin";
 import HistoryMain from "./pages/user/HistoryMain";
 import ReportDetail from "./pages/admin/ReportDetail";
+import ProfilUser from "./pages/user/ProfileUser";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
 
         {/* Route User */}
         <Route path="/beranda" element={<HomeUser />} />
+        <Route path="/beranda/profile" element={<ProfilUser/>}/>
         <Route path="/riwayat/*" element={<HistoryMain/>}/>
         <Route path="/laporan" element={<ReportUser />} />
         <Route path="/chat" element={<ChatUser />} />

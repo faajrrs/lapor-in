@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LayoutUser from "../../layouts/LayoutUser";
 
 export default function HomeUser() {
@@ -13,7 +14,8 @@ export default function HomeUser() {
               Perbarui profil Anda untuk mempermudah pengelolaan pengaduan. Klik
               tombol di bawah untuk melihat dan mengeditnya!
             </p>
-            <div className="user__btn_profile">Lihat Profile</div>
+            <Link className="user__btn_profile" to="/beranda/profile">Lihat Profile</Link>
+            {/* <div className="user__btn_profile">Lihat Profile</div> */}
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ export default function FooterUser() {
           <FooterLink
             text="Beranda"
             to="/beranda"
-            active={pathname === "/beranda"}
+            active={pathname.startsWith("/beranda")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
