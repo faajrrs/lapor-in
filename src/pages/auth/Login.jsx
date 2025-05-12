@@ -9,6 +9,7 @@ import FormLabel from "../../components/auth/FormLabel";
 import FormInput from "../../components/auth/FormInput";
 import FormLink from "../../components/auth/FormLink";
 import FormButton from "../../components/auth/FormButton";
+import { jwtDecode } from "jwt-decode";
 import { useState } from "react";
 
 export default function Login() {
@@ -34,15 +35,20 @@ export default function Login() {
       if (result.success) {
         alert("Login berhasil!");
         localStorage.setItem("token", result.token);
-      
+
+        // Decode token
+        const decoded = jwtDecode(result.token);
+        const role = decoded.role;
+
         // Arahkan tergantung instansi_id
-        if (result.instansi_id !== null ) {
-          window.location.href = "http://localhost:5173/masuk/dashboard";
-        } else {
+        if (role === "admin") {
+          window.location.href = "http://localhost:5173/admin/dashboard";
+        } else if (role === "user") {
           window.location.href = "http://localhost:5173/beranda";
+        } else {
+          alert("Role tidak dikenali");
         }
-      }
-      else {
+      } else {
         alert("Gagal login: " + result.message);
       }
     } catch (error) {
@@ -80,7 +86,11 @@ export default function Login() {
           <FormLink text="Lupa kata sandi?" href="/lupa-kata-sandi" />
           <FormButton text="Masuk" type="submit" />
         </Form>
-        <FormFooter text="Belum punya akun? " link="Daftar sekarang!" path="/daftar" />
+        <FormFooter
+          text="Belum punya akun? "
+          link="Daftar sekarang!"
+          path="/daftar"
+        />
       </LayoutAuth>
     </LayoutHome>
   );
