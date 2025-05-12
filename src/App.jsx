@@ -11,6 +11,7 @@ import NotificationUser from "./pages/user/NotificationUser";
 import DashboardAdmin from "./pages/admin/DashboardAdmin";
 import ProtectedRouteAdmin from "./components/ProtectedRouteAdmin";
 import ProtectedRouteUser from "./components/ProtectedRouteUser";
+import ProtectedRouteGuest from "./components/ProtectedRouteGuest";
 import ReportAdmin from "./pages/admin/ReportAdmin";
 import TitleApp from "./TitleApp";
 import ChatAdmin from "./pages/admin/ChatAdmin";
@@ -25,10 +26,24 @@ function App() {
       <TitleApp />
       <Routes>
         {/* Route HomePage */}
-        <Route path="/" element={<Homepage />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRouteGuest>
+              <Homepage />
+            </ProtectedRouteGuest>
+          }
+        />
 
         {/* Route Auth */}
-        <Route path="/masuk" element={<Login />} />
+        <Route
+          path="/masuk"
+          element={
+            <ProtectedRouteGuest>
+              <Login />
+            </ProtectedRouteGuest>
+          }
+        />
         <Route path="/daftar" element={<Register />} />
         <Route path="/lupa-kata-sandi" element={<ForgotPassword />} />
 
