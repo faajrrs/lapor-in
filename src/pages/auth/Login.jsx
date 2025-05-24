@@ -11,6 +11,7 @@ import FormLink from "../../components/auth/FormLink";
 import FormButton from "../../components/auth/FormButton";
 import { jwtDecode } from "jwt-decode";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -33,29 +34,41 @@ export default function Login() {
       const result = await res.json();
 
       if (result.success) {
-        alert("Login berhasil!");
+        Swal.fire({
+          title: "Login Berhasil",
+          text: "Selamat Menggunakan Aplikasi",
+          icon: "success",
+        });
+
+        // Simpan token
         localStorage.setItem("token", result.token);
 
-        // Decode token
-        const decoded = jwtDecode(result.token);
-        const role = decoded.role;
 
-        // Arahkan tergantung instansi_id
-        if (role === "admin") {
+        // Decode token untuk dapatkan role_id
+        const decoded = jwtDecode(result.token);
+        const roleId = decoded.role_id;
+
+        // Redirect berdasarkan role
+        if (roleId === 1) {
           window.location.href = "http://localhost:5173/admin/dashboard";
-        } else if (role === "user") {
+        } else {
           window.location.href = "http://localhost:5173/beranda";
         } else {
           alert("Role tidak dikenali");
         }
       } else {
-        alert("Gagal login: " + result.message);
+        Swal.fire({
+          title: "Login Gagal",
+          text: result.message,
+          icon: "error",
+        });
       }
     } catch (error) {
       console.error("Error:", error);
       alert("Terjadi kesalahan server");
     }
   };
+
   return (
     <LayoutHome>
       <LayoutAuth>

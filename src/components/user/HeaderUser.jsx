@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { logout } from "../../utils/logout";
+import { logout } from "../../utils/auth";
 
 export default function HeaderUser() {
   return (
@@ -8,28 +8,25 @@ export default function HeaderUser() {
         <div className="header__logo">
           <img src="/img/logo.png" alt="" />
         </div>
-
-        <div onClick={logout} style={{ cursor: "pointer" }}>
-          <Link className="header__logout" to="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.75"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              className="lucide lucide-log-out-icon lucide-log-out"
-            >
-              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-              <polyline points="16 17 21 12 16 7" />
-              <line x1="21" x2="9" y1="12" y2="12" />
-            </svg>
-            <span>Keluar</span>
-          </Link>
-        </div>
+        <Link className="header__logout" onClick={logout}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            className="lucide lucide-log-out-icon lucide-log-out"
+          >
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" x2="9" y1="12" y2="12" />
+          </svg>
+          <span>Keluar</span>
+        </Link>
       </div>
     </header>
   );

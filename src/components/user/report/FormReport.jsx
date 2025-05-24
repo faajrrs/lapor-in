@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import FormFieldReport from "./FormFieldReport";
 import FormInputReport from "./FormInputReport";
 import FormLabelReport from "./FormLabelReport";
+import Swal from "sweetalert2";
 
 export default function FormReport() {
   const [formData, setFormData] = useState({
@@ -24,6 +25,7 @@ export default function FormReport() {
   };
 
   const handleSubmit = async (e) => {
+    const token = localStorage.getItem("token");
     e.preventDefault();
     const data = new FormData();
     data.append("judul_laporan", formData.judul_laporan);
@@ -34,13 +36,20 @@ export default function FormReport() {
 
     try {
       const res = await fetch("http://localhost:3000/laporan", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
         method: "POST",
         body: data,
       });
 
       const result = await res.json();
       if (result.success) {
-        alert("Laporan berhasil dikirim!");
+        Swal.fire({
+          title: "Laporan Berhasil Diajukan",
+          text: "Laporan berhasil terbuat tunggu tindak lanjut dari instansi teerkait",
+          icon: "success",
+        });
 
         // Reset form
         setFormData({
@@ -55,7 +64,11 @@ export default function FormReport() {
           fileInputRef.current.value = null;
         }
       } else {
-        alert("Gagal: " + result.message);
+        Swal.fire({
+          title: "Gagal Mengajukan Laporan",
+          text: result.message,
+          icon: "error",
+        });
       }
     } catch (error) {
       console.error(error);

@@ -1,7 +1,12 @@
 import FormReport from "../../components/user/report/FormReport";
 import LayoutUser from "../../layouts/LayoutUser";
+import { isUser } from "../../utils/auth";
+import { useEffect } from "react";
 
 export default function ReportUser() {
+  useEffect(() => {
+    isUser();
+  }, []);
   return (
     <LayoutUser>
       <div class="form__container">
