@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { logout } from "../../utils/auth";
 
 export default function HeaderUser() {
   return (
@@ -7,7 +8,7 @@ export default function HeaderUser() {
         <div className="header__logo">
           <img src="/img/logo.png" alt="" />
         </div>
-        <Link className="header__logout" to="/">
+        <Link className="header__logout" onClick={logout}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

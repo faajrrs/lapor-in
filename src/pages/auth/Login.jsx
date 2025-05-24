@@ -9,7 +9,9 @@ import FormLabel from "../../components/auth/FormLabel";
 import FormInput from "../../components/auth/FormInput";
 import FormLink from "../../components/auth/FormLink";
 import FormButton from "../../components/auth/FormButton";
+import { jwtDecode } from "jwt-decode";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -32,24 +34,38 @@ export default function Login() {
       const result = await res.json();
 
       if (result.success) {
-        alert("Login berhasil!");
+        Swal.fire({
+          title: "Login Berhasil",
+          text: "Selamat Menggunakan Aplikasi",
+          icon: "success",
+        });
+
+        // Simpan token
         localStorage.setItem("token", result.token);
-      
-        // Arahkan tergantung instansi_id
-        if (result.instansi_id !== null ) {
-          window.location.href = "http://localhost:5173/masuk/dashboard";
+
+        // Decode token untuk dapatkan role_id
+        const decoded = jwtDecode(result.token);
+        const roleId = decoded.role_id;
+
+        // Redirect berdasarkan role
+        if (roleId === 1) {
+          window.location.href = "http://localhost:5173/admin/dashboard";
         } else {
           window.location.href = "http://localhost:5173/beranda";
         }
-      }
-      else {
-        alert("Gagal login: " + result.message);
+      } else {
+        Swal.fire({
+          title: "Login Gagal",
+          text: result.message,
+          icon: "error",
+        });
       }
     } catch (error) {
       console.error("Error:", error);
       alert("Terjadi kesalahan server");
     }
   };
+
   return (
     <LayoutHome>
       <LayoutAuth>
@@ -80,7 +96,11 @@ export default function Login() {
           <FormLink text="Lupa kata sandi?" href="/lupa-kata-sandi" />
           <FormButton text="Masuk" type="submit" />
         </Form>
-        <FormFooter text="Belum punya akun? " link="Daftar sekarang!" path="/daftar" />
+        <FormFooter
+          text="Belum punya akun? "
+          link="Daftar sekarang!"
+          path="/daftar"
+        />
       </LayoutAuth>
     </LayoutHome>
   );

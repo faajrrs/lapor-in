@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import AvatarAdmin from "../../../assets/img/admin/avatar-admin.jpg";
 import SidebarLink from "./SidebarLink";
 import SidebarMenu from "./SidebarMenu";
+import { logout } from "../../../utils/auth";
 
 export default function Sidebar() {
   const location = useLocation();
@@ -113,7 +114,11 @@ export default function Sidebar() {
             <rect x="3" y="4" width="18" height="18" rx="2" />
           </svg>
         </SidebarLink>
-        <SidebarLink textMenu="Keluar" to="/" active={pathname === "/"}>
+        <SidebarLink
+          textMenu="Keluar"
+          onClick={logout}
+          active={pathname === "/"}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

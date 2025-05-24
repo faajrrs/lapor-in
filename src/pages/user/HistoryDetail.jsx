@@ -3,13 +3,21 @@ import { useEffect, useState } from "react";
 import HistoryActions from "../../components/user/history/HistoryDetailAction";
 import HistoryDescList from "../../components/user/history/detail/HistoryDescList";
 import HistoryDescItem from "../../components/user/history/detail/HistoryDescItem";
+import { isUser } from "../../utils/auth";
 
 export default function HistoryDetail() {
   const { id } = useParams();
   const [detail, setDetail] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/laporan/${id}`)
+    isUser(); // akan redirect jika bukan user biasa
+    const token = localStorage.getItem("token");
+    fetch(`http://localhost:3000/laporan/detail/${id}`, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -32,13 +40,25 @@ export default function HistoryDetail() {
           <>
             <div className="history__description_detail">
               <HistoryDescList>
-                <HistoryDescItem label="Judul Laporan" desc={detail.judul_laporan} />
-                <HistoryDescItem label="Deskripsi Laporan" desc={detail.deskripsi_laporan} />
+                <HistoryDescItem
+                  label="Judul Laporan"
+                  desc={detail.judul_laporan}
+                />
+                <HistoryDescItem
+                  label="Deskripsi Laporan"
+                  desc={detail.deskripsi_laporan}
+                />
               </HistoryDescList>
               <HistoryDescList>
-                <HistoryDescItem label="Tanggal Kejadian" desc={detail.tanggal} />
+                <HistoryDescItem
+                  label="Tanggal Kejadian"
+                  desc={detail.tanggal}
+                />
                 <HistoryDescItem label="Lokasi Kejadian" desc={detail.lokasi} />
-                <HistoryDescItem label="Instansi Tujuan" desc={detail.nama_instansi} />
+                <HistoryDescItem
+                  label="Instansi Tujuan"
+                  desc={detail.nama_instansi}
+                />
               </HistoryDescList>
             </div>
             <div className="history__image_detail">
