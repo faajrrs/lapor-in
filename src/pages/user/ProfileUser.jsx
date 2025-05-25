@@ -3,6 +3,7 @@ import AvatarUser from "../../assets/img/user/user.jpg";
 import { useEffect, useState } from "react";
 import { isUser } from "../../utils/auth";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export default function ProfilUser() {
   const [profil, setProfil] = useState({
@@ -125,9 +126,9 @@ export default function ProfilUser() {
           </div>
           <div className="profile__field">
             <button type="submit">Simpan</button>
-            <button type="button" onClick={() => alert("Fitur belum tersedia")}>
+            <Link className="user__btn_profile" to="/gantiPwUser">
               Ganti Password
-            </button>
+            </Link>
           </div>
         </form>
       </div>

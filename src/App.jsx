@@ -3,6 +3,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Homepage from "./pages/Homepage";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import ResetPasswordPage from "./pages/auth/ResetPasswordPage";
 import "./global.css";
 import HomeUser from "./pages/user/HomeUser";
 import ReportUser from "./pages/user/ReportUser";
@@ -19,6 +20,7 @@ import ManageAdmin from "./pages/admin/ManageAdmin";
 import HistoryMain from "./pages/user/HistoryMain";
 import ReportDetail from "./pages/admin/ReportDetail";
 import ProfilUser from "./pages/user/ProfileUser";
+import ChangePasswordUser from "./pages/user/ChangePasswordUser";
 
 function App() {
   return (
@@ -46,6 +48,7 @@ function App() {
         />
         <Route path="/daftar" element={<Register />} />
         <Route path="/lupa-kata-sandi" element={<ForgotPassword />} />
+        <Route path="/buat-sandi-baru" element={<ResetPasswordPage />} />
 
         {/* Route User */}
         <Route
@@ -61,6 +64,14 @@ function App() {
           element={
             <ProtectedRouteUser>
               <ProfilUser />
+            </ProtectedRouteUser>
+          }
+        />
+        <Route
+          path="/gantiPwUser"
+          element={
+            <ProtectedRouteUser>
+              <ChangePasswordUser />
             </ProtectedRouteUser>
           }
         />
