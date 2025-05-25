@@ -10,7 +10,7 @@ export default function ProtectedRouteAdmin({ children }) {
 
   try {
     const decoded = jwtDecode(token);
-    if (decoded.role !== "admin") {
+    if (decoded.role_id !== 1) {
       return <Navigate to="/beranda" replace />;
     }
     return <Outlet />;

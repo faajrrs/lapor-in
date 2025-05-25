@@ -43,7 +43,6 @@ export default function Login() {
         // Simpan token
         localStorage.setItem("token", result.token);
 
-
         // Decode token untuk dapatkan role_id
         const decoded = jwtDecode(result.token);
         const roleId = decoded.role_id;
@@ -53,8 +52,6 @@ export default function Login() {
           window.location.href = "http://localhost:5173/admin/dashboard";
         } else {
           window.location.href = "http://localhost:5173/beranda";
-        } else {
-          alert("Role tidak dikenali");
         }
       } else {
         Swal.fire({

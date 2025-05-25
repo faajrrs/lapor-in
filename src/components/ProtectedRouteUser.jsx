@@ -10,7 +10,7 @@ export default function ProtectedRouteUser({ children }) {
 
   try {
     const decoded = jwtDecode(token);
-    if (decoded.role !== "user") {
+    if (decoded.role_id !== 2) {
       return <Navigate to="/admin/dashboard" replace />;
     }
 

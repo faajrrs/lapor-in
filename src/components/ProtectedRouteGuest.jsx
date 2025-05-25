@@ -7,7 +7,7 @@ export default function ProtectedRouteGuest({ children }) {
   if (token) {
     try {
       const decoded = jwtDecode(token);
-      if (decoded.role === "admin") {
+      if (decoded.role_id === 1) {
         return <Navigate to="/admin/dashboard" replace />;
       } else if (decoded.role === "user") {
         return <Navigate to="/beranda" replace />;
