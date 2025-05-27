@@ -8,11 +8,13 @@ import LayoutAdmin from "../../layouts/LayoutAdmin";
 import { isAdmin } from "../../utils/auth";
 
 export default function ReportAdmin() {
+  const [semuaLaporan, setSemuaLaporan] = useState([]);
   const [laporan, setLaporan] = useState([]);
 
   useEffect(() => {
     isAdmin();
     const token = localStorage.getItem("token");
+
     fetch("http://localhost:3000/laporan/admin", {
       method: "GET",
       headers: {
@@ -23,6 +25,7 @@ export default function ReportAdmin() {
       .then((data) => {
         if (data.success) {
           setLaporan(data.data);
+          setSemuaLaporan(data.data);
         } else {
           alert("Gagal memuat laporan");
         }
@@ -65,11 +68,33 @@ export default function ReportAdmin() {
     </>
   );
 
+  const handleFilterReport = ({ search, tanggal, status }) => {
+    let filtered = semuaLaporan;
+
+    if (search && search.trim() !== "") {
+      filtered = filtered.filter((item) =>
+        item.judul_laporan.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    if (tanggal && tanggal.trim() !== "") {
+      filtered = filtered.filter((item) => item.tanggal === tanggal);
+    }
+
+    if (status && status.trim() !== "") {
+      filtered = filtered.filter(
+        (item) => item.status.toLowerCase() === status.toLowerCase()
+      );
+    }
+
+    setLaporan(filtered);
+  };
+
   return (
     <LayoutAdmin>
       <MainContent>
         <TopbarSecond title="LAPORAN PENGADUAN" />
-        <Filter />
+        <Filter filterReport={handleFilterReport} />
         <Table headers={header} datas={laporan} renderRow={renderReportRow} />
       </MainContent>
     </LayoutAdmin>

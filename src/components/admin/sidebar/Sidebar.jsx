@@ -34,7 +34,7 @@ export default function Sidebar() {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="lucide lucide-layout-dashboard-icon lucide-layout-dashboard"
+            className="lucide lucide-layout-dashboard-icon lucide-layout-dashboard"
           >
             <rect width="7" height="9" x="3" y="3" rx="1" />
             <rect width="7" height="5" x="14" y="3" rx="1" />
@@ -57,7 +57,7 @@ export default function Sidebar() {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="lucide lucide-file-text-icon lucide-file-text"
+            className="lucide lucide-file-text-icon lucide-file-text"
           >
             <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
             <path d="M14 2v4a2 2 0 0 0 2 2h4" />
@@ -84,7 +84,7 @@ export default function Sidebar() {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="lucide lucide-messages-square-icon lucide-messages-square"
+            className="lucide lucide-messages-square-icon lucide-messages-square"
           >
             <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z" />
             <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
@@ -105,7 +105,7 @@ export default function Sidebar() {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="lucide lucide-contact-icon lucide-contact"
+            className="lucide lucide-contact-icon lucide-contact"
           >
             <path d="M16 2v2" />
             <path d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
@@ -129,7 +129,7 @@ export default function Sidebar() {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="lucide lucide-log-out-icon lucide-log-out"
+            className="lucide lucide-log-out-icon lucide-log-out"
           >
             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
             <polyline points="16 17 21 12 16 7" />

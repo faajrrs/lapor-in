@@ -11,7 +11,7 @@ export default function ButtonSidebar({onClick}) {
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="lucide lucide-panel-right-close-icon lucide-panel-right-close"
+        className="lucide lucide-panel-right-close-icon lucide-panel-right-close"
       >
         <rect width="18" height="18" x="3" y="3" rx="2" />
         <path d="M15 3v18" />
